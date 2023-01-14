@@ -1,0 +1,43 @@
+----
+Cx.exe
+
+                                                         常にビルド
+コマンドライン       動作                                (ビルド不要でもスキップしない)   *Test.objへのリンク先の切り替え
+-------------------------------------------------------------------------------------------------------------------------
+cx Program.x
+cx Program           Program.c をビルド                  N                                N
+
+cx *                 カレントDIRをビルド                 N                                N
+
+cx **                カレントDIRと配下をビルド           N                                N
+
+cx ***               カレントDIRと配下をビルド           Y                                N
+
+cx ++ Program.x
+cx ++ Program        Program.c をビルド                  Y                                N
+
+cx ++ *              カレントDIRをビルド                 Y                                N
+
+cx clean Program.x
+cx clean Program     Program.c をクリーンアップ          -                                N
+
+cx clean *           カレントDIRをクリーンアップ         -                                N
+
+cx clean **          カレントDIRと配下をクリーンアップ   -                                N
+
+cx -- Program.x
+cx -- Program        Program.c をビルド                  N                                Y
+
+cx -- *              カレントDIRをビルド                 N                                Y
+
+cx -- **             カレントDIRと配下をビルド           N                                Y
+
+cx -- ***            カレントDIRと配下をビルド           Y                                Y
+
+cx ++ -- Program.x
+cx ++ -- Program
+cx -- ++ Program.x
+cx -- ++ Program     Program.c をビルド                  Y                                Y
+
+cx ++ -- *
+cx -- ++ *           カレントDIRをビルド                 Y                                Y

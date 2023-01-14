@@ -1,0 +1,13 @@
+<project outputDir="" baseDir="C:\temp\ConfuserEx" xmlns="http://confuser.codeplex.com">
+	<rule preset="none" pattern="true">
+		<protection id="rename">
+			<argument name="mode" value="letters" />
+			<argument name="renXaml" value="false" />
+		</protection>
+		<protection id="constants">
+			<argument name="mode" value="normal" />
+			<argument name="elements" value="SN" />
+		</protection>
+	</rule>
+	<module path="$TARGET_EXE$" />
+</project>
