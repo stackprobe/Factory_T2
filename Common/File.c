@@ -739,7 +739,7 @@ void eraseParents(autoList_t *pathList)
 	}
 }
 
-static void CopyFile_DM(char *srcFile, char *destFile, char *destMode)
+static void CopyFile_DM_Main(char *srcFile, char *destFile, char *destMode)
 {
 	uint64 buffSize = getFileSize(srcFile);
 	FILE *rfp;
@@ -765,6 +765,19 @@ static void CopyFile_DM(char *srcFile, char *destFile, char *destMode)
 	}
 	fileClose(rfp);
 	fileClose(wfp);
+}
+
+int (*userIsCancel_CopyFile_DM)(char *srcFile, char *destFile, char *destMode);
+
+static void CopyFile_DM(char *srcFile, char *destFile, char *destMode)
+{
+	if (
+		userIsCancel_CopyFile_DM &&
+		userIsCancel_CopyFile_DM(srcFile, destFile, destMode)
+		)
+		return;
+
+	CopyFile_DM_Main(srcFile, destFile, destMode);
 }
 void joinFile(char *bodyFile, char *tailFile)
 {

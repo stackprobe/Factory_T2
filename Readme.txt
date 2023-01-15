@@ -25,7 +25,7 @@ Visual Studio Community 2022
 参照
 
 この環境のリポジトリ：
-https://github.com/soleil-taruto/Factory
+https://github.com/stackprobe/Factory_T2
 
 昔のリポジトリ
 https://github.com/stackprobe/Factory

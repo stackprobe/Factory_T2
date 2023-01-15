@@ -15,6 +15,18 @@ static void ClearRepoDir(char *dir)
 
 	releaseDim(paths, 1);
 }
+static int IsCancelCopyToRepoDir(char *rFile, char *wFile, char *mode)
+{
+	char *ext = getExt(rFile);
+
+	if (
+		!_stricmp(ext, "exe") ||
+		!_stricmp(ext, "obj")
+		)
+		return 1;
+
+	return 0;
+}
 static void CopyToRepoDir(char *rDir, char *wDir)
 {
 	autoList_t *rPaths = ls(rDir);
@@ -28,13 +40,18 @@ static void CopyToRepoDir(char *rDir, char *wDir)
 		cout("< %s\n", rPath);
 		cout("> %s\n", wPath);
 
+		userIsCancel_CopyFile_DM = IsCancelCopyToRepoDir;
 		copyPath(rPath, wPath);
+		userIsCancel_CopyFile_DM = NULL; // restore
+
 		memFree(wPath);
 	}
 	releaseDim(rPaths, 1);
 }
 static void RemoveNotNeedFiles(char *dir)
 {
+	// CopyToRepoDir()Ç≈ëŒèàÇ∑ÇÈÅB
+	/*
 	autoList_t *files = lssFiles(dir);
 	char *file;
 	uint index;
@@ -50,6 +67,7 @@ static void RemoveNotNeedFiles(char *dir)
 			removeFile(file);
 	}
 	releaseDim(files, 1);
+	*/
 
 	// ----
 
