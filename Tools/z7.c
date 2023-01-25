@@ -178,6 +178,9 @@ readArgs:
 	}
 	if (argIs("/D"))
 	{
+		// memo: Release.bat のために追加した。
+		// 出力ファイル名を指定するような使い方は SubTools/zip.c 向き。
+
 		OutputFile = makeFullPath(nextArg());
 
 		cout("+--------------------------------+\n");
