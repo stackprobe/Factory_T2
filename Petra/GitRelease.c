@@ -74,7 +74,7 @@ static void RemoveNotNeedFiles(char *dir)
 	addCwd(dir);
 	{
 		recurClearDir("tmp");
-		recurClearDir("tmp_Prime");
+		recurClearDir("tmp_data");
 	}
 	unaddCwd();
 }
