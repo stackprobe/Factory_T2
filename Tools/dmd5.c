@@ -38,9 +38,13 @@
 
 		DIR -> disp(Simple) md5 + check CRED_FILE(DIR + .cred)
 
+		★表示されるハッシュ値は dmd5 DIR > out.txt ⇒ md5 out.txt で表示される値と同じ。
+
 	dmd5.exe ... /S
 
 		CWD -> disp(Simple) md5 + check CRED_FILE(CWD + .cred)
+
+		★表示されるハッシュ値は dmd5 . > out.txt ⇒ md5 out.txt で表示される値と同じ。
 
 	dmd5.exe ... DIR1 DIR2
 
@@ -137,10 +141,8 @@ static void DispHashes(autoList_t *hashes)
 
 		foreach (hashes, hash, index)
 		{
-			if (index)
-				md5_update(i, gndBlockLineVarPtr("\n", &gab));
-
 			md5_update(i, gndBlockLineVarPtr(hash, &gab));
+			md5_update(i, gndBlockLineVarPtr("\r\n", &gab));
 		}
 		cout("%s\n", c_makeHexLine_x(md5_makeHash(i)));
 		md5_release(i);
