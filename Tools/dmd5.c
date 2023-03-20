@@ -34,6 +34,14 @@
 
 		DIR -> disp md5 + check CRED_FILE
 
+	dmd5.exe ... /S DIR
+
+		DIR -> disp(Simple) md5 + check CRED_FILE(DIR + .cred)
+
+	dmd5.exe ... /S
+
+		CWD -> disp(Simple) md5 + check CRED_FILE(CWD + .cred)
+
 	dmd5.exe ... DIR1 DIR2
 
 		compare DIR1, DIR2
@@ -114,14 +122,35 @@ static void DispHashesDiff(autoList_t *hashes1, autoList_t *hashes2)
 		releaseDim(report, 1);
 	}
 }
+
+static int DispHashes_SimpleMode;
+
 static void DispHashes(autoList_t *hashes)
 {
 	char *hash;
 	uint index;
 
-	foreach (hashes, hash, index)
+	if (DispHashes_SimpleMode)
 	{
-		cout("%s\n", hash);
+		md5_t *i = md5_create();
+		autoBlock_t gab;
+
+		foreach (hashes, hash, index)
+		{
+			if (index)
+				md5_update(i, gndBlockLineVarPtr("\n", &gab));
+
+			md5_update(i, gndBlockLineVarPtr(hash, &gab));
+		}
+		cout("%s\n", c_makeHexLine_x(md5_makeHash(i)));
+		md5_release(i);
+	}
+	else
+	{
+		foreach (hashes, hash, index)
+		{
+			cout("%s\n", hash);
+		}
 	}
 }
 
@@ -251,6 +280,18 @@ readArgs:
 	if (argIs("/P")) // comPare credentials file
 	{
 		CheckDirCredFile(getArg(0), getArg(1));
+		return;
+	}
+	if (argIs("/S")) // Simple
+	{
+		DispHashes_SimpleMode = 1;
+
+		if (hasArgs(1))
+		{
+			CheckDir(nextArg());
+			return;
+		}
+		CheckDir(".");
 		return;
 	}
 
