@@ -1,7 +1,7 @@
 /*
-	b16128.exe [/L] [/P]
+	b16128.exe [/U] [/P]
 
-		/L ... 小文字
+		/U ... 大文字
 		/P ... 表示のみ。(エディタを開かない)
 
 	----
@@ -13,7 +13,7 @@
 	----
 	書式
 
-	{BF80-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+	{bf80-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
 	      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	                   32文字                           32文字                           32文字                           32文字
 
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 {
 	char *b16128 = MakeB16128();
 
-	if (argIs("/L"))
+	if (!argIs("/U"))
 		toLowerLine(b16128);
 
 	cout("%s\n", b16128);
