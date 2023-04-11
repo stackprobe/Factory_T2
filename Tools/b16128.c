@@ -37,7 +37,8 @@ static char *MakeB16128(void)
 		if (index && index % 32 == 0)
 			buff = addChar(buff, '-');
 
-		buff = addChar(buff, BASE16_CHARS[(uint)getCryptoRand64Mod(16)]);
+//		buff = addChar(buff, BASE16_CHARS[(uint)getCryptoRand64Mod(16)]);
+		buff = addChar(buff, BASE16_CHARS[getCryptoByte() & 0x0f]);
 	}
 	buff = addChar(buff, '}');
 	return buff;
