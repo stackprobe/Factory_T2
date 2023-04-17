@@ -7768,6 +7768,7 @@ C:\Factory\Petra\GitRelease.c(30) : CopyToRepoDir // ŠÖ”
 C:\Factory\Petra\GitRelease.c(51) : RemoveNotNeedFiles // ŠÖ”
 C:\Factory\Petra\GitRelease.c(81) : main // ŠÖ”
 C:\Factory\Petra\Lock.c(7) : main // ŠÖ”
+C:\Factory\Petra\MoveDevOutToHPStore.c(12) : main // ŠÖ”
 C:\Factory\Petra\PublicLog.c(7) : LOG_FILE // ’è‹`
 C:\Factory\Petra\PublicLog.c(8) : LOG_FILE_02 // ’è‹`
 C:\Factory\Petra\PublicLog.c(9) : LOG_FILE_03 // ’è‹`
