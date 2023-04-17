@@ -151,7 +151,7 @@ static void DoINIT(void)
 		if (!LoadPBits())
 		{
 #if 1
-			error();
+			error_m("素数データを配置して下さい。");
 #else // 廃止 @ 2023.4.18
 			LOGPOS();
 			PutPrimeTo13();
