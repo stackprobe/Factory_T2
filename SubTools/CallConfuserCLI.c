@@ -6,7 +6,9 @@
 
 #include "C:\Factory\Common\all.h"
 
-#define CONFUSER_CLI_EXE "C:\\app\\ConfuserEx_bin\\Confuser.CLI.exe"
+//#define CONFUSER_CLI_EXE "C:\\app\\ConfuserEx_bin\\Confuser.CLI.exe" // îpé~ @ 2023.4.30
+#define CONFUSER_CLI_EXE "C:\\Factory\\Tools\\Noop.exe"
+
 #define PROJ_TEMPLATE_FILE "C:\\Factory\\SubTools\\CallConfuserCLI_Proj.txt"
 
 static void CopyDLL(char *rExeFile, char *wDir)
