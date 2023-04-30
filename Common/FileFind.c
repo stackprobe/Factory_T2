@@ -423,6 +423,28 @@ int fileSearchExist(char *wCard)
 	return FSX_Found;
 }
 
+static int IED_Found;
+
+static int IED_Action(struct _finddata_t *i)
+{
+	if (
+		!strcmp(i->name, ".") ||
+		!strcmp(i->name, "..")
+		)
+		return 1;
+
+	IED_Found = 1;
+	return 0;
+}
+int isEmptyDir(char *dir)
+{
+	char *wCard = combine(dir, WILDCARD);
+	IED_Found = 0;
+	fileSearch(wCard, IED_Action);
+	memFree(wCard);
+	return !IED_Found;
+}
+
 uint lsCount(char *dir)
 {
 	uint count = 0;

@@ -38,8 +38,11 @@ static void DoMD(char *dir)
 }
 static void DoRDMD(char *dir)
 {
-	DoRD(dir);
-	DoMD(dir);
+	if (!isEmptyDir(dir))
+	{
+		DoRD(dir);
+		DoMD(dir);
+	}
 }
 
 int main(int argc, char **argv)

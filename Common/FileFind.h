@@ -49,6 +49,7 @@ void lss2File(char *dir, char *dirsFile, char *filesFile);
 void fileSearch(char *wCard, int (*action)(struct _finddata_t *));
 uint fileSearchCount(char *wCard);
 int fileSearchExist(char *wCard);
+int isEmptyDir(char *dir);
 
 uint lsCount(char *dir);
 
