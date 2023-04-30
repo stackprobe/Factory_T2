@@ -24,6 +24,17 @@
 
 ----
 
+配下のリビルド
+
+	runsub Release
+
+リリース物の回収
+
+	lss .zip*
+	lssColl
+
+----
+
 タイムスタンプのソート順がファイル名のソート順になるようにタイムスタンプを変更する。
 
 	SubTools\OrderStamp.c
