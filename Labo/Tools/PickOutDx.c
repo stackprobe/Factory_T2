@@ -86,10 +86,16 @@ static void PickOutDx(char *dir)
 			memFree(wFile);
 		}
 	}
+	unaddCwd();
+
 	if (copied)
 	{
 		coExecute_x(xcout("C:\\Factory\\SubTools\\OrderStamp.exe \"%s\"", destDir2));
 		coExecute_x(xcout("START \"\" \"%s\"", destDir));
+	}
+	else
+	{
+		coExecute_x(xcout("C:\\Factory\\Tools\\RDMD.exe /RD \"%s\"", destDir));
 	}
 	releaseDim(files, 1);
 	memFree(destDir);
