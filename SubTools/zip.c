@@ -36,12 +36,12 @@
 	zip.exe [/PE-] /O OUT-DIR PROJ-NAME
 
 		... OUT-DIR -> OUT-DIR \ { PROJ-NAME } .zip
-			PROJ-NAME に "*P" を指定するとカレントディレクトリのローカル名の e99999999_xxxx の xxxx の部分になる。
+			PROJ-NAME に "*P" を指定するとカレントディレクトリのローカル名になる。日付が付いていれば除去する。
 
 	zip.exe [/PE-] [/RVE-] [/B | /V VER-VAL] /G OUT-DIR PROJ-NAME
 
 		... OUT-DIR -> OUT-DIR \ { PROJ-NAME } _v123.zip
-			PROJ-NAME に "*P" を指定するとカレントディレクトリのローカル名の e99999999_xxxx の xxxx の部分になる。
+			PROJ-NAME に "*P" を指定するとカレントディレクトリのローカル名になる。日付が付いていれば除去する。
 
 	zip.exe /X ZIP-FILE OUT-DIR
 
@@ -529,6 +529,10 @@ static char *x_ProjNameFilter(char *projName)
 		eraseParent(tmppn);
 //		errorCase(!lineExp("<1,AZaz><8,09>_<1,100,\x21\x7e>", tmppn)); // プロジェクトのフォルダ名 // フォルダ名の規約を廃止した。@ 2022.1.4
 //		eraseLine(tmppn, 10);
+
+		if (lineExp("<8,09>_<1,,>", tmppn)) // ? 日付が付いている。-> 除去する。
+			eraseLine(tmppn, 9);
+
 		cout("projName: %s -> %s\n", PROJNAME_AUTO, tmppn);
 		projName = strr(tmppn);
 	}

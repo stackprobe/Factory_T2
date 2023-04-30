@@ -2,6 +2,7 @@
 	acp.exe 入力ファイル 出力ファイル
 
 		入力ファイル, 出力ファイル ... パス内の *P をカレントDIRのローカル名(プロジェクト名)に置き換える。
+			プロジェクト名に日付が付いていれば除去する。
 
 		ルートDIRから実行するとプロジェクト名を得られないためエラーになる。
 */
@@ -17,6 +18,9 @@ int main(int argc, char **argv)
 	char *projectName = getLocal(getCwd()); // g
 
 	errorCase(m_isEmpty(projectName));
+
+	if (lineExp("<8,09>_<1,,>", projectName)) // ? 日付が付いている。-> 除去する。
+		projectName += 9;
 
 	LOGPOS();
 	cout("P %s\n", projectName);
