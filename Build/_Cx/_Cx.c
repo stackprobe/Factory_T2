@@ -1,5 +1,5 @@
 #include "C:\Factory\Common\all.h"
-#include "libs\SolutionOrder.h"
+#include "SolutionOrder.h"
 
 #define CLSTDERR "_Cx_e.tmp"
 #define CLSTDOUT "_Cx_o.tmp"

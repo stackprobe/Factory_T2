@@ -7,7 +7,7 @@ typedef struct SourceInfo_st
 }
 SourceInfo_t;
 
-autoList_t *GetReferenceSolutions(char *source)
+static autoList_t *GetReferenceSolutions(char *source)
 {
 	autoList_t *solutions = newList();
 

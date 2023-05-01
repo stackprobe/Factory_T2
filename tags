@@ -79,11 +79,11 @@ C:\Factory\Build\_Cx\_Cx.c(482) : AfterDeepBuild // 関数
 C:\Factory\Build\_Cx\_Cx.c(484) : PROG_NAME // 定義
 C:\Factory\Build\_Cx\_Cx.c(502) : DeepBuild // 関数
 C:\Factory\Build\_Cx\_Cx.c(612) : main // 関数
-C:\Factory\Build\_Cx\libs\SolutionOrder.c(10) : GetReferenceSolutions // 関数
-C:\Factory\Build\_Cx\libs\SolutionOrder.c(83) : FindLastReference // 関数
-C:\Factory\Build\_Cx\libs\SolutionOrder.c(104) : SolutionOrder // 関数
-C:\Factory\Build\_Cx\libs\SolutionOrder.c(8) : SourceInfo_t // 型宣言
-C:\Factory\Build\_Cx\libs\SolutionOrder.h(5) : SolutionOrder // 変数又は宣言
+C:\Factory\Build\_Cx\SolutionOrder.c(10) : GetReferenceSolutions // 関数
+C:\Factory\Build\_Cx\SolutionOrder.c(83) : FindLastReference // 関数
+C:\Factory\Build\_Cx\SolutionOrder.c(104) : SolutionOrder // 関数
+C:\Factory\Build\_Cx\SolutionOrder.c(8) : SourceInfo_t // 型宣言
+C:\Factory\Build\_Cx\SolutionOrder.h(5) : SolutionOrder // 変数又は宣言
 C:\Factory\Common\autoBlock.c(3) : BASE_SIZE_UNRESIZABLE // 定義
 C:\Factory\Common\autoBlock.c(4) : BASE_SIZE_EXPAND_ONLY // 定義
 C:\Factory\Common\autoBlock.c(5) : BLOCK_SIZE_MAX // 定義
