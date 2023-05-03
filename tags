@@ -9886,11 +9886,12 @@ C:\Factory\Tools\PipeLogger.c(112) : main // ŠÖ”
 C:\Factory\Tools\Prime.c(8) : PrintPrimeOnlyFlag // •Ï”–”‚ÍéŒ¾
 C:\Factory\Tools\Prime.c(10) : PrintIsPrime // ŠÖ”
 C:\Factory\Tools\Prime.c(22) : main // ŠÖ”
-C:\Factory\Tools\RDMD.c(11) : CompactMode // •Ï”–”‚ÍéŒ¾
-C:\Factory\Tools\RDMD.c(13) : DoRD // ŠÖ”
-C:\Factory\Tools\RDMD.c(25) : DoMD // ŠÖ”
-C:\Factory\Tools\RDMD.c(39) : DoRDMD // ŠÖ”
-C:\Factory\Tools\RDMD.c(48) : main // ŠÖ”
+C:\Factory\Tools\RDMD.c(11) : CompactDir // ŠÖ”
+C:\Factory\Tools\RDMD.c(23) : CompactMode // •Ï”–”‚ÍéŒ¾
+C:\Factory\Tools\RDMD.c(25) : DoRD // ŠÖ”
+C:\Factory\Tools\RDMD.c(37) : DoMD // ŠÖ”
+C:\Factory\Tools\RDMD.c(51) : DoRDMD // ŠÖ”
+C:\Factory\Tools\RDMD.c(64) : main // ŠÖ”
 C:\Factory\Tools\RenameAll.c(7) : PubFiles1 // •Ï”–”‚ÍéŒ¾
 C:\Factory\Tools\RenameAll.c(8) : PubFiles2 // •Ï”–”‚ÍéŒ¾
 C:\Factory\Tools\RenameAll.c(10) : MovePubFiles // ŠÖ”

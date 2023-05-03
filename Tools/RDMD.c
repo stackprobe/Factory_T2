@@ -8,6 +8,18 @@
 
 #include "C:\Factory\Common\all.h"
 
+static void CompactDir(char *dir, int compactFlag)
+{
+	if (compactFlag) // ? à≥èkÇ∑ÇÈÅB
+	{
+		coExecute_x(xcout("Compact.exe /C /S:\"%s\"", dir));
+	}
+	else // ? à≥èkâèúÇ∑ÇÈÅB
+	{
+		coExecute_x(xcout("Compact.exe /U /S:\"%s\"", dir));
+	}
+}
+
 static int CompactMode;
 
 static void DoRD(char *dir)
@@ -34,11 +46,15 @@ static void DoMD(char *dir)
 		coSleep(1000);
 	}
 	if (CompactMode)
-		coExecute_x(xcout("Compact.exe /C /S:\"%s\"", dir));
+		CompactDir(dir, 1);
 }
 static void DoRDMD(char *dir)
 {
-	if (!isEmptyDir(dir))
+	if (isEmptyDir(dir))
+	{
+		CompactDir(dir, CompactMode);
+	}
+	else
 	{
 		DoRD(dir);
 		DoMD(dir);
