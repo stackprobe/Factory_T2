@@ -3,11 +3,12 @@
 
 	- - -
 
-	trep.exe [/-C] [/F] [/-] 置き換え後の文字列
+	trep.exe [/-C] [/F] [/8] [/-] 置き換え後の文字列
 */
 
 #include "C:\Factory\Common\all.h"
 #include "C:\Factory\Common\Options\rbTree.h"
+#include "C:\Factory\Common\Options\UTF.h"
 
 static int NoCheckMode;
 static int ForceMode;
@@ -123,6 +124,8 @@ static void DoTrep(void)
 }
 int main(int argc, char **argv)
 {
+	int utf8mode = 0;
+
 readArgs:
 	if (argIs("/-C"))
 	{
@@ -132,6 +135,11 @@ readArgs:
 	if (argIs("/F"))
 	{
 		ForceMode = 1;
+		goto readArgs;
+	}
+	if (argIs("/8"))
+	{
+		utf8mode = 1;
 		goto readArgs;
 	}
 	argIs("/-");
@@ -225,8 +233,21 @@ readArgs:
 			cout("Ignore case かな？\n");
 		}
 		if (foundOuterPath)
+		{
 			cout("カレントの配下じゃないのもあるよ。\n");
+		}
+		if (utf8mode)
+		{
+			char *tmpFile = makeTempPath(NULL);
 
+			writeOneLineNoRet_b(tmpFile, DestPtn);
+			SJISToUTF8File(tmpFile, tmpFile);
+			DestPtn = readText_b(tmpFile); // g
+			removeFile(tmpFile);
+			memFree(tmpFile);
+
+			cout("UTF-8\n");
+		}
 		memFree(knownSrcPtn);
 		memFree(currDir);
 	}
